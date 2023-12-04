@@ -1,16 +1,17 @@
 import React from 'react';
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton} from '@material-ui/core';
-import {AddShoppingCart} from '@material-ui/core'
+import { AddShoppingCart } from '@material-ui/icons';
 import useStyles from '../../Navbar/styles'
 
 const Product = ({product, onAddToCart}) => {
     const classes = useStyles()
     console.log(product);
+
    
   return (
  
   <Card className={classes.root}> 
-       <CardMedia className={classes.media} image={product.image} title={product.name}/>
+       <CardMedia className={classes.media} image={product?.image?.url} title={product?.is.name}/>
          <CardContent>
            <div className={classes.cardContent} > 
              <Typography variant='5'  gutterBottom>
@@ -22,7 +23,7 @@ const Product = ({product, onAddToCart}) => {
          </CardContent>
          <CardActions disableSpacing className="classes.cardActions">
            <IconButton aria-label='Add to card' onClick={() => onAddToCart(product.id,1)}>
-                {/* <AddShoppingCart/> */}
+                <AddShoppingCart/>
            </IconButton>
          </CardActions>
   </Card>
